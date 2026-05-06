@@ -158,13 +158,13 @@ ZenLang/
 ## Compile
 
 ```bash
-make
+make all
 ```
 
 ## Run Compiler + Generated Program
 
 ```bash
-make test
+make all run
 ```
 
 ## Clean Generated Files
