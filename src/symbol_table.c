@@ -26,10 +26,3 @@ char* lookup_symbol(char *name) {
     }
     return NULL;
 }
-
-void print_symbol_table() {
-    printf("\nSymbol Table:\n");
-    for(int i = 0; i < symbol_count; i++) {
-        printf("%s : %s\n", table[i].name, table[i].type);
-    }
-}

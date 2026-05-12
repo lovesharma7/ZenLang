@@ -32,16 +32,15 @@ void optimize_ir() {
             strcmp(code[i].op, "+") == 0 ||
             strcmp(code[i].op, "-") == 0 ||
             strcmp(code[i].op, "*") == 0 ||
-            strcmp(code[i].op, "/") == 0 ||
-            strcmp(code[i].op, "%") == 0
+            strcmp(code[i].op, "/") == 0
         ) {
 
             if(is_number(code[i].arg1) && is_number(code[i].arg2)) {
 
-                int a = atoi(code[i].arg1);
-                int b = atoi(code[i].arg2);
+                float a = atoi(code[i].arg1);
+                float b = atoi(code[i].arg2);
 
-                int result = 0;
+                float result = 0;
 
                 if(strcmp(code[i].op, "+") == 0)
                     result = a + b;
@@ -55,10 +54,7 @@ void optimize_ir() {
                 else if(strcmp(code[i].op, "/") == 0 && b != 0)
                     result = a / b;
 
-                else if(strcmp(code[i].op, "%") == 0 && b != 0)
-                    result = a % b;
-
-                sprintf(code[i].arg1, "%d", result);
+                sprintf(code[i].arg1, "%f", result);
 
                 strcpy(code[i].op, "=");
 

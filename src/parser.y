@@ -134,6 +134,10 @@ text_declaration:
             sprintf(buffer, "    strcpy(%s, %s);\n", $2, $4);
             emit(buffer);
         }
+    | TEXT_TYPE IDENTIFIER SEMICOLON
+        {
+            insert_symbol($2, "text");
+        }
 ;
 
 type:
@@ -200,7 +204,7 @@ show_stmt:
 
                 sprintf(
                     buffer,
-                    "    printf(\"%%d\\n\", %s);\n",
+                    "    printf(\"%%f\\n\", %s);\n",
                     $2
                 );
             }
@@ -225,13 +229,22 @@ show_stmt:
 ask_stmt:
       ASK IDENTIFIER SEMICOLON
         {
-            if(lookup_symbol($2) == NULL) {
+            char *type = lookup_symbol($2);
+            if(type == NULL) {
                 printf("Semantic Error: Variable '%s' not declared\n", $2);
                 exit(1);
             }
 
             char buffer[200];
-            sprintf(buffer, "    scanf(\"%%d\", &%s);\n", $2);
+            if (strcmp(type, "text") == 0) {
+                sprintf(buffer, "    scanf(\"%%s\", &%s);\n", $2);
+            }
+            else if (strcmp(type, "dec") == 0) {
+                sprintf(buffer, "    scanf(\"%%f\", &%s);\n", $2);
+            }
+            else {
+                sprintf(buffer, "    scanf(\"%%d\", &%s);\n", $2);
+            }
             emit(buffer);
         }
 ;

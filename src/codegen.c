@@ -97,7 +97,7 @@ void generate_c_code() {
     }
 
     if(temp_var_count > 0) {
-        fprintf(fp, "\n    int ");
+        fprintf(fp, "\n    float ");
         for(int i = 0; i < temp_var_count; i++) {
             fprintf(fp, "%s", temps[i]);
             if(i != temp_var_count - 1) {

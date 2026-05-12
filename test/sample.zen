@@ -1,8 +1,26 @@
-show "Enter any number : ";
-num a;
-ask a;
-num i = 1;
-loop (i <= 10) {
-  show a * i;
-  i = i + 1;
+text msg;
+show "Enter msg : ";
+ask msg;
+show "You entered ";
+show msg;
+
+num a = 5;
+num b = 2;
+
+dec x = 2.2;
+dec y = 3.3;
+
+num ans1 = a + b;
+dec ans2 = x + y;
+
+show ans1;
+show ans2;
+
+if (a > b) {
+  show "a is greater than b\n";
+}
+
+loop (b < 5) {
+  show b;
+  b = b + 1;
 }

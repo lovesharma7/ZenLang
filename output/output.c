@@ -3,19 +3,37 @@
 
 int main() {
 
+    char msg[100];
     int a;
-    int i;
+    int b;
+    float x;
+    float y;
+    int ans1;
+    float ans2;
 
-    int t0, t1;
+    float t0, t1, t2;
 
-    printf("Enter any number : ");
-    scanf("%d", &a);
-    i = 1;
-    while (i <= 10) {
-    t0 = a * i;
-    printf("%d\n", t0);
-    t1 = i + 1;
-    i = t1;
+    printf("Enter msg : ");
+    scanf("%s", &msg);
+    printf("You entered ");
+    printf("%s\n", msg);
+    a = 5;
+    b = 2;
+    x = 2.200000;
+    y = 3.300000;
+    t0 = a + b;
+    ans1 = t0;
+    t1 = x + y;
+    ans2 = t1;
+    printf("%d\n", ans1);
+    printf("%f\n", ans2);
+    if (a > b) {
+    printf("a is greater than b\n");
+    }
+    while (b < 5) {
+    printf("%d\n", b);
+    t2 = b + 1;
+    b = t2;
     }
 
     return 0;
